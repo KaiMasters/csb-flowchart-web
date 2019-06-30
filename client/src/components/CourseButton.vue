@@ -1,14 +1,16 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="course">
+    <h1>{{ Course.id }}</h1>
   </div>
 </template>
 
 <script>
+import Course from '../classes/Course.ts'
+
 export default {
-  name: 'HelloWorld',
+  name: 'CourseButton',
   props: {
-    msg: String
+    Course: Object
   }
 }
 </script>
