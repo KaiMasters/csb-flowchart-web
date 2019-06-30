@@ -214,6 +214,7 @@ const update = async function (write = false) {
       return console.log(err);
     }
     console.log("The big data file was saved!");
+
   });
 
 }
