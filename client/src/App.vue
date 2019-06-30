@@ -2,11 +2,9 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <ul id="courseList">
-      <li v-for="course in Curriculum">
-        <CourseButton :Course="course"></CourseButton>
-      </li>
-    </ul>
+    <div v-for="(course, index, courses) in Curriculum" id="courseList">
+      <CourseButton :Course="course" :CourseList="courses"></CourseButton>
+    </div>
     
   </div>
 </template>
