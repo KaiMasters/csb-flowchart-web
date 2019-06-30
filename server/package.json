@@ -2,12 +2,10 @@
   "name": "lehighucsb",
   "version": "1.0.0",
   "description": "Lehigh University CSB Flowchart",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,18 +24,11 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "eslint": "^5.16.0"
   },
   "eslintConfig": {
     "root": true,
@@ -45,7 +36,6 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
       "eslint:recommended"
     ],
     "rules": {},
