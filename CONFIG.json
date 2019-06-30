@@ -1,0 +1,14 @@
+{
+  "ID": "1edSaMBSElAynNurQzRbfYY1Pe2TNdef5q6_bUguMNfE",
+  "COLUMNS": false,
+  "BASE_URL": "https://spreadsheets.google.com/feeds/list/",
+  "BACK_URL": "/public/values?alt=json",
+  "SHEETS": [
+    "CURRICULUM",
+    "DEPT_REF",
+    "COLLEGE_REF",
+    "ELECTIVES",
+    "TRANSFER_CREDIT",
+    "MINORS"
+  ]
+}
