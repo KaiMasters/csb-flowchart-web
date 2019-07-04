@@ -2,7 +2,7 @@
   <div 
    :id="'CourseButton_' + Course.id"
    v-on:click="toggleCompleted"
-   v-bind:class="{ completed: completed, unavailable: !available }"
+   v-bind:class="{ completed: completed, unavailable: !available() }"
    v-bind:style="{ left: Course.view.old.xold + '%' }"
   >
     <h1>{{ Course.information.dept }}<br/>{{ Course.information.coursenum }}</h1>
@@ -15,6 +15,7 @@ export default {
   name: 'CourseButton',
   props: {
     Course: Object,
+    CompletedCourseList: Array,
     isCompleted: {
       type: Boolean,
       default: false
@@ -24,10 +25,16 @@ export default {
     return {
       completed: false,
       available: () => {
-        if (this.completed === false) {
+        if (this.completed === true) {
           return false;
         }
-        return true;
+        if (this.$props.Course.information.prereqs.prereqsold.length === 0) {
+          return true;
+        }
+        if (this.checkPrereqAvailability()) {
+          return true;
+        }
+        return false;
       }
     }
   },
@@ -38,6 +45,31 @@ export default {
         "id": this.$props.Course.id,
         "completed": this.completed
       });
+    },
+    checkPrereqAvailability () {
+      const prereqs = this.$props.Course.information.prereqs.prereqsold;
+      const ccl = this.$props.CompletedCourseList;
+      for (let i = 0; i < prereqs.length; i++) {
+        let index = this.findCourseById(prereqs[i]);
+        if (index === -1) {
+          return false;
+        }
+        if (ccl[index].completed === false) {
+          return false;
+        }
+        
+      }
+      return true;
+    },
+    findCourseById (id) {
+      const ccl = this.$props.CompletedCourseList;
+      for (let i = 0; i < ccl.length; i++) {
+        if (id === ccl[i].id) {
+          console.log(i);
+          return i;
+        }
+      }
+      return -1;
     }
   }
 }
@@ -63,12 +95,12 @@ div:hover {
   background-color: #E53935;
 }
 
-.completed {
+div.completed {
   background-color: #EF9A9A;
   color: black;
 }
 
-.completed:hover {
+div.completed:hover {
   background-color: #FFCDD2;
 }
 

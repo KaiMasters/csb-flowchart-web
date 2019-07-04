@@ -3,6 +3,7 @@
     <div v-for="course in $props.CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
+        :CompletedCourseList="$props.CompletedCourseList"
         v-bind:isCompleted="checkCompleted(course.id)"
         v-on:changeCompleted="changeCompleted"
       ></CourseButton>
@@ -24,7 +25,6 @@ export default {
   },
   data () {
     return {
-      
     }
   },
   methods: {
