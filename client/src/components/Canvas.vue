@@ -3,9 +3,8 @@
     <div v-for="course in $props.CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
-        v-bind:isAvailable="true" 
-        v-bind:isCompleted="false"
-        v-on:updateCompleted="updateCompleted"
+        v-bind:isCompleted="checkCompleted(course.id)"
+        v-on:changeCompleted="changeCompleted"
       ></CourseButton>
     </div>
   </div>
@@ -29,9 +28,18 @@ export default {
     }
   },
   methods: {
-    updateCompleted (course) {
-      console.log("PARENT");
-    }
+    changeCompleted (course) {
+      this.$emit("updateCompleted", course);
+    },
+    checkCompleted (id) {
+      const ccl = this.$props.CompletedCourseList;
+      for (let i = 0; i < ccl.length; i++) {
+        if (id === ccl[i].id) {
+          return true;
+        }
+      }
+      return false;
+    },
   },
   created () {
   }

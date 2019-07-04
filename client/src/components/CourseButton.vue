@@ -18,23 +18,24 @@ export default {
     isCompleted: {
       type: Boolean,
       default: false
-    },
-    isAvailable: {
-      type: Boolean,
-      default: false
     }
   },
   data () {
     return {
       completed: false,
-      available: true
+      available: () => {
+        if (this.completed === false) {
+          return false;
+        }
+        return true;
+      }
     }
   },
   methods: {
     toggleCompleted () {
       this.completed = !this.completed;
-      this.$emit("updateCompleted", {
-        "id": this.id,
+      this.$emit("changeCompleted", {
+        "id": this.$props.Course.id,
         "completed": this.completed
       });
     }

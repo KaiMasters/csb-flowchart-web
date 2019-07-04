@@ -2,7 +2,11 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <Canvas :CourseList="Curriculum"></Canvas>   
+    <Canvas 
+      :CourseList="Curriculum" 
+      :CompletedCourseList="Completed"
+      v-on:updateCompleted="updateCompleted"  
+    ></Canvas>   
   </div>
 </template>
 
@@ -11,6 +15,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import Canvas from './components/Canvas.vue'
 import Vue from 'vue'
 import Curriculum from '../../server/data/db/CURRICULUM.json'
+import Completed from '../../server/data/COMPLETED.json'
 
 export default {
   name: 'app',
@@ -20,7 +25,27 @@ export default {
   },
   data () {
     return {
-      Curriculum
+      Curriculum,
+      Completed
+    }
+  },
+  methods: {
+    updateCompleted (course) {
+      const index = this.findCourseById(course.id);
+      if (index === -1) {
+        Completed.push(course);
+      } else {
+        Completed[index].completed = course.completed;
+      }
+      this.$forceUpdate();
+    },
+    findCourseById (id) {
+      for (let i = 0; i < Completed.length; i++) {
+        if (id === Completed[i].id) {
+          return i;
+        }
+      }
+      return -1;
     }
   }
 }
