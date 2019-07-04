@@ -2,26 +2,21 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <div v-for="(course, index, courses) in Curriculum" id="courseList">
-      <CourseButton :Course="course" :CourseList="courses"></CourseButton>
-    </div>
-    
+    <Canvas :CourseList="Curriculum"></Canvas>   
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import CourseButton from './components/CourseButton.vue'
+import Canvas from './components/Canvas.vue'
 import Vue from 'vue'
 import Curriculum from '../../server/data/db/CURRICULUM.json'
-
-console.log(Curriculum);
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    CourseButton
+    Canvas
   },
   data () {
     return {

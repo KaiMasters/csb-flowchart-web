@@ -219,4 +219,4 @@ const update = async function (write = false) {
 
 }
 
-update();
+update(true);

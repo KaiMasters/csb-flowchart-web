@@ -1,8 +1,8 @@
 <template>
   <div 
-   :id="'CourseButton_' + Course.id" 
-   v-on:click="isCompleted = !isCompleted" 
-   v-bind:class="{ completed: isCompleted, unavailable: !isAvailable(Course) }"
+   :id="'CourseButton_' + Course.id"
+   v-on:click="toggleCompleted"
+   v-bind:class="{ completed: completed, unavailable: !available }"
    v-bind:style="{ left: Course.view.old.xold + '%' }"
   >
     <h1>{{ Course.information.dept }}<br/>{{ Course.information.coursenum }}</h1>
@@ -10,43 +10,38 @@
 </template>
 
 <script>
-import Course from '../classes/Course.ts'
-
-const checkPrereqs = (prereqs) => {
-  return false;
-};
-
-const findCourseByID = (id) => {
-
-};
 
 export default {
   name: 'CourseButton',
   props: {
     Course: Object,
-    CourseList: Object
+    isCompleted: {
+      type: Boolean,
+      default: false
+    },
+    isAvailable: {
+      type: Boolean,
+      default: false
+    }
   },
-  data: () => {
+  data () {
     return {
-      isCompleted: false,
-      isAvailable: (Course) => {
-        let prereqs = Course.information.prereqs.prereqsold;
-        if (prereqs.length === 0) {
-          // No prereqs
-          return true;
-        } else {
-          if (checkPrereqs(prereqs)) {
-            return true;
-          }
-          return false;
-        }
-      }
+      completed: false,
+      available: true
+    }
+  },
+  methods: {
+    toggleCompleted () {
+      this.completed = !this.completed;
+      this.$emit("updateCompleted", {
+        "id": this.id,
+        "completed": this.completed
+      });
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 div {
@@ -60,6 +55,7 @@ div {
   background-color: #C62828;
   color: white;
   position: relative;
+  overflow: hidden;
 }
 
 div:hover {
