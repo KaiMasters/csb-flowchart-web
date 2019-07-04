@@ -31,21 +31,15 @@ export default {
   },
   methods: {
     updateCompleted (course) {
-      const index = this.findCourseById(course.id);
+      const index = Completed.indexOf(course);
       if (index === -1) {
+        console.log("COMPLETED: " + course);
         Completed.push(course);
       } else {
-        Completed[index].completed = course.completed;
+        console.log("NOTCOMPLETED: " + course);
+        Completed.splice(index, 1);
       }
       this.$forceUpdate();
-    },
-    findCourseById (id) {
-      for (let i = 0; i < Completed.length; i++) {
-        if (id === Completed[i].id) {
-          return i;
-        }
-      }
-      return -1;
     }
   }
 }

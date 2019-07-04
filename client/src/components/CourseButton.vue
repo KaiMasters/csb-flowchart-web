@@ -2,7 +2,7 @@
   <div 
    :id="'CourseButton_' + Course.id"
    v-on:click="toggleCompleted"
-   v-bind:class="{ completed: completed, unavailable: !available() }"
+   v-bind:class="{ completed: isCompleted, unavailable: !available() }"
    v-bind:style="{ left: Course.view.old.xold + '%' }"
   >
     <h1>{{ Course.information.dept }}<br/>{{ Course.information.coursenum }}</h1>
@@ -23,14 +23,12 @@ export default {
   },
   data () {
     return {
-      completed: false,
       available: () => {
-        if (this.completed === true) {
+        // If completed
+        if (this.isCompleted === true) {
           return false;
         }
-        if (this.$props.Course.information.prereqs.prereqsold.length === 0) {
-          return true;
-        }
+        // Check if prereqs are completed
         if (this.checkPrereqAvailability()) {
           return true;
         }
@@ -41,35 +39,34 @@ export default {
   methods: {
     toggleCompleted () {
       this.completed = !this.completed;
-      this.$emit("changeCompleted", {
-        "id": this.$props.Course.id,
-        "completed": this.completed
-      });
+      this.$emit("changeCompleted", this.$props.Course.id);
     },
     checkPrereqAvailability () {
       const prereqs = this.$props.Course.information.prereqs.prereqsold;
-      const ccl = this.$props.CompletedCourseList;
       for (let i = 0; i < prereqs.length; i++) {
-        let index = this.findCourseById(prereqs[i]);
-        if (index === -1) {
+        let ret = this.checkPrereqAvailabilityHelper(prereqs[i]);
+        if (ret === false) {
           return false;
         }
-        if (ccl[index].completed === false) {
-          return false;
-        }
-        
       }
       return true;
     },
-    findCourseById (id) {
+    checkPrereqAvailabilityHelper (prereq) {
       const ccl = this.$props.CompletedCourseList;
-      for (let i = 0; i < ccl.length; i++) {
-        if (id === ccl[i].id) {
-          console.log(i);
-          return i;
+      if (typeof prereq === "string") { // String
+        let index = ccl.indexOf(prereq);
+        if (index === -1) {
+          return false;
         }
+        return true;
+      } else { // List
+        for (let j = 0; j < prereq.length; j++) {
+          if (this.checkPrereqAvailabilityHelper(prereq[j])) {
+            return true;
+          }
+        }
+        return false;
       }
-      return -1;
     }
   }
 }

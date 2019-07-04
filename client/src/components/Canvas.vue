@@ -1,13 +1,13 @@
 <template>
   <div id="courseList">
-    <div v-for="course in $props.CourseList" v-bind:key="course.id">
+    <span v-for="course in $props.CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
         :CompletedCourseList="$props.CompletedCourseList"
         v-bind:isCompleted="checkCompleted(course.id)"
         v-on:changeCompleted="changeCompleted"
       ></CourseButton>
-    </div>
+    </span>
   </div>
 </template>
 
@@ -33,12 +33,11 @@ export default {
     },
     checkCompleted (id) {
       const ccl = this.$props.CompletedCourseList;
-      for (let i = 0; i < ccl.length; i++) {
-        if (id === ccl[i].id) {
-          return true;
-        }
+      const index = ccl.indexOf(id);
+      if (index === -1) {
+        return false;
       }
-      return false;
+      return true;
     },
   },
   created () {
