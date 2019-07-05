@@ -2,6 +2,8 @@
   <div 
    :id="'CourseButton_' + Course.id"
    v-on:click="toggleCompleted"
+   v-on:mouseover="boldPrereqs"
+   v-on:mouseleave="unboldPrereqs"
    v-bind:class="{ completed: isCompleted, unavailable: !available() }"
    v-bind:style="{ left: Course.view.old.xold + '%' }"
   >
@@ -40,6 +42,12 @@ export default {
     toggleCompleted () {
       this.completed = !this.completed;
       this.$emit("changeCompleted", this.$props.Course.id);
+    },
+    boldPrereqs () {
+      this.$emit("boldPrereqs", this.$props.Course.id);
+    },
+    unboldPrereqs () {
+      this.$emit("unboldPrereqs", this.$props.Course.id);
     },
     checkPrereqAvailability () {
       const prereqs = this.$props.Course.information.prereqs.prereqsold;
@@ -105,6 +113,5 @@ div.completed:hover {
   background-color: white;
   color: black;
 }
-
 
 </style>

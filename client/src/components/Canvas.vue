@@ -5,6 +5,8 @@
         :Course="course" 
         :CompletedCourseList="$props.CompletedCourseList"
         v-bind:isCompleted="checkCompleted(course.id)"
+        v-on:boldPrereqs="boldPrereqs(course.id)"
+        v-on:unboldPrereqs="unboldPrereqs(course.id)"
         v-on:changeCompleted="changeCompleted"
       ></CourseButton>
     </span>
@@ -39,6 +41,18 @@ export default {
       }
       return true;
     },
+    boldPrereqs (id) {
+      let arr = this.$parent.getPrereqs(id);
+      arr.forEach((prereq) => {
+        document.querySelector("#CourseButton_" + prereq).classList.add("bolded");
+      });
+    },
+    unboldPrereqs (id) {
+      let arr = this.$parent.getPrereqs(id);
+      arr.forEach((prereq) => {
+        document.querySelector("#CourseButton_" + prereq).classList.remove("bolded");
+      });
+    }
   },
   created () {
   }
@@ -46,6 +60,9 @@ export default {
 </script>
 
 <style scoped>
-
+div.bolded {
+  background-color: #FF1744;
+  color: white;
+}
 
 </style>

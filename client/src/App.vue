@@ -35,11 +35,35 @@ export default {
       if (index === -1) {
         console.log("COMPLETED: " + course);
         Completed.push(course);
+        this.getPrereqs(course).forEach((prereq) => {
+          Completed.push(prereq);
+        });
       } else {
         console.log("NOTCOMPLETED: " + course);
         Completed.splice(index, 1);
       }
       this.$forceUpdate();
+    },
+    getPrereqs (course) {
+      let allPrereqs = new Set();
+      return Array.from(this.getPrereqsHelper(course, allPrereqs));
+    },
+    getPrereqsHelper (id, set) {
+
+      Curriculum.forEach((course) => {
+        if (course.id === id) {
+          course.information.prereqs.prereqsold.flat().forEach((prereq) => {
+            let size = set.size;
+            set.add(prereq);
+            if (set.size === size) { // No new things to check
+              // No
+            } else { // New things to check
+              this.getPrereqsHelper(prereq, set);
+            }
+          });
+        }
+      });
+      return set;
     }
   }
 }
