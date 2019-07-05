@@ -94,6 +94,7 @@ div {
   color: white;
   position: relative;
   overflow: hidden;
+  display: inline-block;
 }
 
 div:hover {
