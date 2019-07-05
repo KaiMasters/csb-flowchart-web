@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 div.bolded {
-  background-color: #FF1744;
+  background-color: #FF5252;
   color: white;
 }
 

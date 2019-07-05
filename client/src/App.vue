@@ -33,13 +33,11 @@ export default {
     updateCompleted (course) {
       const index = Completed.indexOf(course);
       if (index === -1) {
-        console.log("COMPLETED: " + course);
         Completed.push(course);
         this.getPrereqs(course).forEach((prereq) => {
           Completed.push(prereq);
         });
       } else {
-        console.log("NOTCOMPLETED: " + course);
         Completed.splice(index, 1);
       }
       this.$forceUpdate();
