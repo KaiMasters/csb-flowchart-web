@@ -1,27 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <Canvas 
-      :CourseList="Curriculum" 
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Canvas
+      :CourseList="Curriculum"
       :CompletedCourseList="Completed"
-      v-on:updateCompleted="updateCompleted"  
-    ></Canvas>   
+      v-on:updateCompleted="updateCompleted"
+    />
+    <Aside msg="Hi"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Canvas from './components/Canvas.vue'
+import Aside from './components/Aside.vue'
 import Vue from 'vue'
-import Curriculum from '../../server/data/db/CURRICULUM.json'
+import CURRICULUM from '../../server/data/db/CURRICULUM.json'
 import Completed from '../../server/data/COMPLETED.json'
+import CSB2023 from '../../server/data/map/CSB2023.json'
+
+const mapContains = (id, map) => {
+  let ret = -1;
+  map.forEach((course, index) => {
+    if (course.id === id) {
+      ret = index;
+    }
+  });
+  return ret;
+};
+
+let Curriculum = CURRICULUM.filter((course, index, list) => {
+  let i = mapContains(course.id, CSB2023);
+  if (i !== -1) {
+    return true;
+  } else {
+    return false;
+  }
+}).map((course, index, list) => {
+  let i = mapContains(course.id, CSB2023);
+  course.view = {...CSB2023[i].view};
+  return course;
+});
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    Canvas
+    Canvas,
+    Aside
   },
   data () {
     return {
@@ -69,11 +95,18 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 100%;
+  height: 100vh;
 }
+
+body {
+  margin: 0;
+}
+
 </style>

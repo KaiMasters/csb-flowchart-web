@@ -1,5 +1,5 @@
 <template>
-  <div id="courseList">
+  <div id="canvas">
     <span v-for="course in $props.CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
@@ -64,5 +64,14 @@ div.bolded {
   background-color: #FF5252;
   color: white;
 }
+
+#canvas {
+  height: 80%;
+  float: left;
+  width: 100%;
+  text-align: left;
+  position: absolute;
+}
+
 
 </style>

@@ -5,9 +5,9 @@
    v-on:mouseover="boldPrereqs"
    v-on:mouseleave="unboldPrereqs"
    v-bind:class="{ completed: isCompleted, unavailable: !available() }"
-   v-bind:style="{ left: Course.view.old.xold + '%' }"
+   v-bind:style="{ left: Course.view.x + '%', top: Course.view.y + '%' }"
   >
-    <h1>{{ Course.information.dept }}<br/>{{ Course.information.coursenum }}</h1>
+    <span>{{ Course.information.dept }}<br/>{{ Course.information.coursenum }}</span>
   </div>
 </template>
 
@@ -82,6 +82,16 @@ export default {
 
 <style scoped>
 
+span {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
 div {
   font-size: 0.5em;
   width: 5%;
@@ -92,9 +102,10 @@ div {
   margin: 0.5%;
   background-color: #C62828;
   color: white;
-  position: relative;
+  position: absolute;
   overflow: hidden;
   display: inline-block;
+  text-align: center;
 }
 
 div:hover {
