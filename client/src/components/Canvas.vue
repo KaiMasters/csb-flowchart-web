@@ -44,13 +44,19 @@ export default {
     boldPrereqs (id) {
       let arr = this.$parent.getPrereqs(id);
       arr.forEach((prereq) => {
-        document.querySelector("#CourseButton_" + prereq).classList.add("bolded");
+        let button = document.querySelector("#CourseButton_" + prereq);
+        if (button) {
+          button.classList.add("bolded");
+        }
       });
     },
     unboldPrereqs (id) {
       let arr = this.$parent.getPrereqs(id);
       arr.forEach((prereq) => {
-        document.querySelector("#CourseButton_" + prereq).classList.remove("bolded");
+        let button = document.querySelector("#CourseButton_" + prereq);
+        if (button) {
+          button.classList.remove("bolded");
+        }
       });
     }
   },
