@@ -93,8 +93,8 @@ span {
 }
 
 div {
-  font-size: 0.5em;
-  width: 5%;
+  font-size: 0.4em;
+  width: 6%;
   border-radius: 10%;
   cursor: pointer;
   border: 1px solid black;

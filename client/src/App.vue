@@ -2,7 +2,10 @@
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <div class="columns" id="viewport">
-      <Aside msg="Hi"/>
+      <Aside 
+        msg="Hi"
+        :CourseList="Curriculum"
+      />
       <Canvas
         :CourseList="Curriculum"
         :CompletedCourseList="Completed"
@@ -124,7 +127,7 @@ body {
 }
 
 #viewport {
-  height: 100%;
+  height: 95%;
   width: 100%;
   margin: 0;
 }
