@@ -2,16 +2,18 @@
   <div id="aside" class="column is-one-quarter">
     {{msg}}  
     <div v-for="course in $props.CourseList" v-bind:key="course.id">
-      {{course.information.dept}}
+      <AsideButton :Course="course"/>
     </div>
   </div>
 </template>
 
 <script>
+import AsideButton from './AsideButton.vue'
 
 export default {
   name: 'Aside',
   components: {
+    AsideButton
   },
   props: {
     msg: String,
