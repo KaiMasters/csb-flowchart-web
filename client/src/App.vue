@@ -61,10 +61,20 @@ export default {
       if (index === -1) {
         Completed.push(course);
         this.getPrereqs(course).forEach((prereq) => {
-          Completed.push(prereq);
+          if (Completed.indexOf(prereq) === -1) {
+            Completed.push(prereq);
+          }
         });
       } else {
+        // Remove course
         Completed.splice(index, 1);
+        for (let i = 0; i < 2; i++) { // TODO: figure out why this needs to be done twice
+          Completed.forEach((crs, idx) => { // Remove dependent courses
+            if (this.getPrereqs(crs).indexOf(course) !== -1) {
+              Completed.splice(idx, 1);
+            }
+          });
+        }
       }
       this.$forceUpdate();
     },
