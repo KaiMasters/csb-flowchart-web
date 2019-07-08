@@ -1,5 +1,5 @@
 <template>
-  <div id="canvas">
+  <div id="canvas" class="column is-three-quarters">
     <span v-for="course in $props.CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
@@ -72,11 +72,8 @@ div.bolded {
 }
 
 #canvas {
-  height: 80%;
-  float: left;
-  width: 100%;
   text-align: left;
-  position: absolute;
+  position: relative;
 }
 
 

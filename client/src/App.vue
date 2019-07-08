@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <HelloWorld msg="Welcome to Your Vue.js App" />
-    <Canvas
-      :CourseList="Curriculum"
-      :CompletedCourseList="Completed"
-      v-on:updateCompleted="updateCompleted"
-    />
-    <Aside msg="Hi"/>
+    <div class="columns" id="viewport">
+      <Aside msg="Hi"/>
+      <Canvas
+        :CourseList="Curriculum"
+        :CompletedCourseList="Completed"
+        v-on:updateCompleted="updateCompleted"
+      />
+    </div>
   </div>
 </template>
 
@@ -115,7 +117,15 @@ export default {
   height: 100vh;
 }
 
+
+
 body {
+  margin: 0;
+}
+
+#viewport {
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 

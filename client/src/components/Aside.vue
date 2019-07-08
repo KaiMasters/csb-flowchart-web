@@ -1,5 +1,5 @@
 <template>
-  <div id="aside">
+  <div id="aside" class="column is-one-quarter">
     {{msg}}
   </div>
 </template>
@@ -24,9 +24,9 @@ export default {
 
 <style scoped>
 
-div {
-  height: 100%;
-  width: 100%;
+
+#aside {
+  display: inline-block;
 }
 
 </style>
