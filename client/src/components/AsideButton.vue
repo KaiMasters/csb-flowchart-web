@@ -2,7 +2,10 @@
   <div 
    :id="'CourseCollapsible_' + Course.id"
    v-on:click="toggleExpanded"
+   v-bind:class="{ expanded: isExpanded }"
   >
+    <span v-if="!isExpanded">+</span>
+    <span v-if="isExpanded">-</span>
     <span>{{ Course.information.dept }} {{ Course.information.coursenum }}</span>
     <div v-if="isExpanded === true">
       {{ Course.information.description }} HELLO
@@ -33,7 +36,7 @@ export default {
 <style scoped>
 
 span {
-  display: block;
+  display: inline;
   font-size: 2em;
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
@@ -46,7 +49,7 @@ div {
   font-size: 0.5em;
   width: 100%;
   height: 100%;
-  border-radius: 2%;
+  border-radius: 5px;
   cursor: pointer;
   border: 1px solid black;
   transition: .3s;
@@ -56,6 +59,7 @@ div {
   overflow: hidden;
   display: inline-block;
   text-align: center;
+  background-clip: padding-box;
 }
 
 div:hover {
