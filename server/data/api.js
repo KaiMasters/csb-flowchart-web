@@ -117,8 +117,22 @@ const curriculumMod = function (data) {
   data = data.rows;
   let d;
 
-  const info = ["dept", "coursenum", "title", "coursedesc", "coursenotes", "credits", "recprofs", "lab", "scienceseq", "fall", "winter", "spring", "summer", "prereqsold", "prereqsnew"]
-  const view = ["displayold", "displaynew", "xold", "yold", "xnew", "ynew"];
+  const info = [
+    "dept", 
+    "coursenum", 
+    "title", 
+    "coursedesc", 
+    "coursenotes", 
+    "credits", 
+    "recprofs", 
+    "fall", 
+    "winter", 
+    "spring", 
+    "summer", 
+    "prereqs2018", 
+    "prereqs2019", 
+    "attributes"
+  ];
 
   for (let i = 0; i < data.length; i++) {
     d = data[i];
@@ -156,32 +170,15 @@ const curriculumMod = function (data) {
   
     // Add structure to prereqs, make them arrays for iteration purposes
     d.information.prereqs = {
-      "prereqsold": d.information.prereqsold ? d.information.prereqsold : [],
-      "prereqsnew": d.information.prereqsnew ? d.information.prereqsnew : []
+      "_2018": d.information.prereqs2018 ? d.information.prereqs2018 : [],
+      "_2019": d.information.prereqs2019 ? d.information.prereqs2019 : []
     }
-    d.information.prereqsnew = undefined;
-    d.information.prereqsold = undefined;
+    d.information.prereqs2018 = undefined;
+    d.information.prereqs2019 = undefined;
     
     // Add structure to prereqs for traversal purposes
-    d.information.prereqs.prereqsnew = structureCoursePrereqs(d.information.prereqs.prereqsnew);
-    d.information.prereqs.prereqsold = structureCoursePrereqs(d.information.prereqs.prereqsold);
-
-    // Add structure to view
-    d.view = {
-      "new": {
-        "displaynew": d.displaynew ? d.displaynew : null,
-        "xnew": d.xnew ? +d.xnew : null,
-        "ynew": d.ynew ? +d.ynew : null
-      },
-      "old": {
-        "displayold": d.displayold ? d.displayold : null,
-        "xold": d.xold ? +d.xold : null,
-        "yold": d.yold ? +d.yold : null
-      }
-    };
-    for (let k = 0; k < view.length; k++) {
-      d[view[k]] = undefined;
-    }
+    d.information.prereqs._2018 = structureCoursePrereqs(d.information.prereqs._2018);
+    d.information.prereqs._2019 = structureCoursePrereqs(d.information.prereqs._2019);
 
   }
 
