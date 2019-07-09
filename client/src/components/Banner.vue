@@ -1,22 +1,23 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>{{ Banner.title }}</h1>
+    <h6>{{ Banner.subtitle }}</h6>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Banner',
   props: {
-    msg: String
+    Banner: Object
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  font-size: 2rem;
 }
 ul {
   list-style-type: none;

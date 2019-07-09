@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Banner 
+      :Banner="CSB2023.banner"
+    />
     <div class="columns" id="viewport">
       <Aside 
         msg="Hi"
@@ -16,7 +18,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Banner from './components/Banner.vue'
 import Canvas from './components/Canvas.vue'
 import Aside from './components/Aside.vue'
 import Vue from 'vue'
@@ -46,36 +48,30 @@ const sortCourses = (list) => {
 };
 
 let Curriculum = sortCourses(CURRICULUM.filter((course, index, list) => {
-  let i = mapContains(course.id, CSB2023);
+  let i = mapContains(course.id, CSB2023.display);
   if (i !== -1) {
     return true;
   } else {
     return false;
   }
 }).map((course, index, list) => {
-  let i = mapContains(course.id, CSB2023);
-  course.view = {...CSB2023[i].view};
+  let i = mapContains(course.id, CSB2023.display);
+  course.view = {...CSB2023.display[i].view};
   return course;
 }))
-// .map((course, index, list) => {
-//   let i = mapContains(course.id, CURRICULUM);
-//   course.information = {...CURRICULUM[i].information};
-//   return course;
-// });
-
-// console.log(Curriculum);
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    Banner,
     Canvas,
     Aside
   },
   data () {
     return {
       Curriculum,
-      Completed
+      Completed,
+      CSB2023
     }
   },
   methods: {
@@ -133,7 +129,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
   width: 100%;
   height: 100vh;
 }

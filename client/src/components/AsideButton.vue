@@ -148,15 +148,16 @@ div.info {
 }
 
 div.expand-enter, div.expand-leave-to {
-  height: 0;
+  max-height: 0;
 }
 
 div.expand-enter-to, div.expand-leave {
-  height: 100%;
+  max-height: 100%;
 }
 
 div.expand-enter-active, div.expand-leave-active {
-  transition: height 1.5s all;
+  transition: all 200ms;
+  overflow: hidden;
 }
 
 </style>
