@@ -6,26 +6,29 @@
   >
     <div class="collapsibleMain columns" v-on:click="toggleExpanded">
       <span class="collapsibleSign column is-one-quarter">
-        <span v-if="!isExpanded" class="plusMinus">+</span>
-        <span v-if="isExpanded" class="plusMinus">-</span>
+        <div v-if="!isExpanded" class="plusMinus">+</div>
+        <div v-if="isExpanded" class="plusMinus">-</div>
       </span>
       <span class="collapsibleText column is-three-quarters">
         <span>{{ Course.information.dept }} {{ Course.information.coursenum }}</span>
       </span>
     </div>
-    
-    <div v-if="isExpanded === true" class="content">
-      <div class="columns">
-        <div class="column">
-          <div v-if="Course.information.credits === 1">{{ Course.information.credits }} Credit</div>
-          <div v-if="Course.information.credits !== 1">{{ Course.information.credits }} Credits</div>
+    <transition name="expand">
+      <div v-if="isExpanded === true" class="content">
+        <div class="info">
+          <div>
+            <strong>Title:</strong> {{ Course.information.title }}
+          </div>
+          <div>
+            <strong>Credits:</strong> {{ Course.information.credits }}
+          </div>
         </div>
-        <div class="column">
-          {{ Course.information.title }}
+        <div class="description">
+          <strong>Description:</strong>
+          {{ Course.information.coursedesc }}
         </div>
       </div>
-      {{ Course.information.coursedesc }}
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -51,13 +54,8 @@ export default {
 
 <style scoped>
 
-span {
+div.asideButton {
   display: inline;
-  margin-block-start: 0.1em;
-  margin-block-end: 0.1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
   vertical-align: middle;
 }
 
@@ -66,11 +64,14 @@ span.collapsibleSign {
   margin: 0;
   padding: 0;
   vertical-align: middle;
+  line-height: 1rem;
 }
 
 span.collapsibleText {
   font-size: 1.5rem;
   text-align: left;
+  padding: 5%;
+  height: 90%;
 }
 
 div.asideButton {
@@ -105,19 +106,43 @@ div.expanded:hover {
 
 div.collapsibleMain {
   margin: 0;
-  line-height: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
 }
 
 .content {
   font-size: .75rem;
   border-top: 2px solid black;
   cursor: default;
+  text-align: left;
+  margin: 0 5%;
+  user-select: auto;
 }
 
 .plusMinus {
-  height: 100%;
   vertical-align: middle;
-  padding: 5% 0;
+  padding: 25%;
+  height: 50%;
+}
+
+div.description {
+
+}
+
+div.info {
+
+}
+
+div.expand-enter, div.expand-leave-to {
+  height: 0;
+}
+
+div.expand-enter-to, div.expand-leave {
+  height: 100%;
+}
+
+div.expand-enter-active, div.expand-leave-active {
+  transition: height 1.5s all;
 }
 
 </style>
