@@ -8,7 +8,7 @@
         v-on:boldPrereqs="boldPrereqs(course.id)"
         v-on:unboldPrereqs="unboldPrereqs(course.id)"
         v-on:changeCompleted="changeCompleted"
-      ></CourseButton>
+      />
     </span>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
       return true;
     },
     boldPrereqs (id) {
-      let arr = this.$parent.getPrereqs(id);
+      let arr = this.$parent.$parent.getPrereqs(id);
       arr.forEach((prereq) => {
         let button = document.querySelector("#CourseButton_" + prereq);
         if (button) {
@@ -51,7 +51,7 @@ export default {
       });
     },
     unboldPrereqs (id) {
-      let arr = this.$parent.getPrereqs(id);
+      let arr = this.$parent.$parent.getPrereqs(id);
       arr.forEach((prereq) => {
         let button = document.querySelector("#CourseButton_" + prereq);
         if (button) {
@@ -59,8 +59,6 @@ export default {
         }
       });
     }
-  },
-  created () {
   }
 }
 </script>

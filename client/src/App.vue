@@ -3,24 +3,17 @@
     <Banner 
       :Banner="CSB2023.banner"
     />
-    <div class="columns" id="viewport">
-      <Aside 
-        msg="Hi"
-        :CourseList="Curriculum"
-      />
-      <Canvas
-        :CourseList="Curriculum"
-        :CompletedCourseList="Completed"
-        v-on:updateCompleted="updateCompleted"
-      />
-    </div>
+    <Viewport
+      :CompletedCourseList="Completed"
+      :CourseList="Curriculum"
+      v-on:updateCompleted="updateCompleted"
+    />
   </div>
 </template>
 
 <script>
 import Banner from './components/Banner.vue'
-import Canvas from './components/Canvas.vue'
-import Aside from './components/Aside.vue'
+import Viewport from './components/Viewport.vue'
 import Vue from 'vue'
 import CURRICULUM from '../../server/data/db/CURRICULUM.json'
 import Completed from '../../server/data/COMPLETED.json'
@@ -63,9 +56,8 @@ let Curriculum = sortCourses(CURRICULUM.filter((course, index, list) => {
 export default {
   name: 'app',
   components: {
-    Banner,
-    Canvas,
-    Aside
+    Viewport,
+    Banner
   },
   data () {
     return {
@@ -135,12 +127,6 @@ export default {
 
 
 body {
-  margin: 0;
-}
-
-#viewport {
-  height: 95%;
-  width: 100%;
   margin: 0;
 }
 
