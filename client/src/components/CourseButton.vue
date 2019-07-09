@@ -50,7 +50,7 @@ export default {
       this.$emit("unboldPrereqs", this.$props.Course.id);
     },
     checkPrereqAvailability () {
-      const prereqs = this.$props.Course.information.prereqs.prereqsold;
+      const prereqs = this.$props.Course.information.prereqs.prereqsnew;
       for (let i = 0; i < prereqs.length; i++) {
         let ret = this.checkPrereqAvailabilityHelper(prereqs[i]);
         if (ret === false) {

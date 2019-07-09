@@ -1,7 +1,7 @@
 <template>
   <div id="aside" class="column is-one-quarter">
     {{msg}}  
-    <div v-for="course in $props.CourseList" v-bind:key="course.id">
+    <div v-for="course in $props.CourseList" v-bind:key="'AsideButton_' + course.id">
       <AsideButton :Course="course"/>
     </div>
   </div>

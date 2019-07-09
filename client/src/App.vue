@@ -34,7 +34,18 @@ const mapContains = (id, map) => {
   return ret;
 };
 
-let Curriculum = CURRICULUM.filter((course, index, list) => {
+const sortCourses = (list) => {
+  return list.sort((a, b) => {
+    if (a.id.substr(0, 3) >= b.id.substr(0, 3)) {
+      // TODO better sort
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+};
+
+let Curriculum = sortCourses(CURRICULUM.filter((course, index, list) => {
   let i = mapContains(course.id, CSB2023);
   if (i !== -1) {
     return true;
@@ -45,7 +56,14 @@ let Curriculum = CURRICULUM.filter((course, index, list) => {
   let i = mapContains(course.id, CSB2023);
   course.view = {...CSB2023[i].view};
   return course;
-});
+}))
+// .map((course, index, list) => {
+//   let i = mapContains(course.id, CURRICULUM);
+//   course.information = {...CURRICULUM[i].information};
+//   return course;
+// });
+
+// console.log(Curriculum);
 
 export default {
   name: 'app',
@@ -91,7 +109,7 @@ export default {
 
       Curriculum.forEach((course) => {
         if (course.id === id) {
-          course.information.prereqs.prereqsold.flat().forEach((prereq) => {
+          course.information.prereqs.prereqsnew.flat().forEach((prereq) => {
             let size = set.size;
             set.add(prereq);
             if (set.size === size) { // No new things to check
@@ -121,7 +139,6 @@ export default {
 }
 
 
-
 body {
   margin: 0;
 }
@@ -131,5 +148,6 @@ body {
   width: 100%;
   margin: 0;
 }
+
 
 </style>
