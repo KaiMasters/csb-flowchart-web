@@ -109,7 +109,7 @@ export default {
 
       Curriculum.forEach((course) => {
         if (course.id === id) {
-          course.information.prereqs.prereqsnew.flat().forEach((prereq) => {
+          course.information.prereqs._2019.flat().forEach((prereq) => {
             let size = set.size;
             set.add(prereq);
             if (set.size === size) { // No new things to check

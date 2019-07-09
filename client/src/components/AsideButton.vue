@@ -22,10 +22,24 @@
           <div>
             <strong>Credits:</strong> {{ Course.information.credits }}
           </div>
+          <div>
+            <strong>Professors:</strong> {{ Course.information.recprofs }}
+          </div>
+          <div>
+            <strong>Offered: </strong>
+              <span v-if="Course.information.schedule.fall">Fall </span>
+              <span v-if="Course.information.schedule.spring">Spring </span>
+          </div>
         </div>
         <div class="description">
-          <strong>Description:</strong>
-          {{ Course.information.coursedesc }}
+          <div>
+            <strong>Description:</strong>
+            {{ Course.information.coursedesc }}
+          </div>
+          <div>
+            <strong>Comments:</strong>
+            {{ Course.information.coursenotes }}
+          </div>
         </div>
       </div>
     </transition>
