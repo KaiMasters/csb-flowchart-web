@@ -3,6 +3,7 @@
     <Aside msg="Hi" 
       :CourseList="CourseList"
       :TransferList="TransferList"
+      :MinorList="MinorList"
     />
     <Canvas
       :CourseList="CourseList"
@@ -24,7 +25,8 @@ export default {
   props: {
     CourseList: Array,
     CompletedCourseList: Array,
-    TransferList: Array
+    TransferList: Array,
+    MinorList: Array
   },
   methods: {
     updateCompleted (course) {
@@ -38,7 +40,7 @@ export default {
 
 <style scoped>
 #viewport {
-  height: 95%;
+  height: 85%;
   width: 100%;
   margin: 0;
 }

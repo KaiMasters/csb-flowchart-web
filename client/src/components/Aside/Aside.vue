@@ -3,6 +3,7 @@
     <select v-model="dropdownState">
       <option value="1">Courses</option>
       <option value="2">AP/Transfer Credit</option>
+      <option value="3">Minors</option>
     </select>
     <div id="aside-container">
       <div v-if="dropdownState === '1'">
@@ -11,6 +12,9 @@
       <div v-if="dropdownState === '2'">
         <AsideTransfer :TransferList="TransferList"/>
       </div>
+      <div v-if="dropdownState === '3'">
+        <AsideMinor :MinorList="MinorList"/>
+      </div>
     </div>
   </div>
 </template>
@@ -18,17 +22,20 @@
 <script>
 import AsideCourses from './CoursesTab/AsideCourses.vue'
 import AsideTransfer from './TransferTab/AsideTransfer.vue'
+import AsideMinor from './MinorTab/AsideMinor.vue'
 
 export default {
   name: 'Aside',
   components: {
     AsideCourses,
-    AsideTransfer
+    AsideTransfer,
+    AsideMinor
   },
   props: {
     msg: String,
     CourseList: Array,
-    TransferList: Array
+    TransferList: Array,
+    MinorList: Array
   },
   data () {
     return {

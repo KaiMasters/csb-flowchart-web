@@ -7,6 +7,7 @@
       :CompletedCourseList="Completed"
       :CourseList="Curriculum"
       :TransferList="TRANSFER"
+      :MinorList="MINOR"
       v-on:updateCompleted="updateCompleted"
     />
   </div>
@@ -19,6 +20,7 @@ import Vue from 'vue'
 
 import CURRICULUM from '../../server/data/db/CURRICULUM.json'
 import TRANSFER from '../../server/data/db/TRANSFER_CREDIT.json'
+import MINOR from '../../server/data/db/MINORS.json'
 
 import Completed from '../../server/data/COMPLETED.json'
 
@@ -68,6 +70,7 @@ export default {
     return {
       Curriculum,
       TRANSFER,
+      MINOR,
       Completed,
       CSB2023
     }
