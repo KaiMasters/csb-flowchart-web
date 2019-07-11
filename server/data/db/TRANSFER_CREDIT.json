@@ -1,1 +1,250 @@
-[{"transferid":"AP Biology","type":"AP","name":"Biology","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["BIOS001"]}]},{"transferid":"AP Chemistry","type":"AP","name":"Chemistry","transfer":[{"categories":"1-4","credits":null},{"categories":"5","credits":["CHM030"]}]},{"transferid":"AP Computer Science A","type":"AP","name":"Computer Science A","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["CSE001","CSE002"]}]},{"transferid":"AP Computer Science Principles","type":"AP","name":"Computer Science Principles","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["CSE012"]}]},{"transferid":"AP Environmental Science","type":"AP","name":"Environmental Science","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["EES002","EES022"]}]},{"transferid":"AP Microeconomics","type":"AP","name":"Microeconomics","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["2FC","*ECO001"]}]},{"transferid":"AP Macroeconomics","type":"AP","name":"Macroeconomics","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["2FC","*ECO001"]}]},{"transferid":"AP English Language and Composition","type":"AP","name":"English Language and Composition","transfer":[{"categories":"1-3","credits":null},{"categories":"4","credits":["ENGL001"]},{"categories":"5","credits":["ENGL001","ENGL002"]}]},{"transferid":"AP English Literature and Composition","type":"AP","name":"English Literature and Composition","transfer":[{"categories":"1-3","credits":null},{"categories":"4","credits":["ENGL001"]},{"categories":"5","credits":["ENGL001","ENGL002"]}]},{"transferid":"AP Calculus AB","type":"AP","name":"Calculus AB","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["MATH021"]}]},{"transferid":"AP Calculus BC","type":"AP","name":"Calculus BC","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["MATH021","MATH022"]}]},{"transferid":"AP Physics 1: Algebra-Based","type":"AP","name":"Physics 1: Algebra-Based","transfer":[{"categories":"1-4","credits":null},{"categories":"5","credits":["PHY011","PHY012"]}]},{"transferid":"AP Physics C: Mechanics","type":"AP","name":"Physics C: Mechanics","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["PHY011","PHY012"]}]},{"transferid":"AP Physics C: Electricity and Magnetism","type":"AP","name":"Physics C: Electricity and Magnetism","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["@PHY021","PHY022"]}]},{"transferid":"AP Statistics","type":"AP","name":"Statistics","transfer":[{"categories":"1-3","credits":null},{"categories":"4-5","credits":["ECO045"]}]},{"transferid":"SAT Evidence-Based Reading & Writing","type":"SAT","name":"Evidence-Based Reading & Writing","transfer":[{"categories":"<700","credits":null},{"categories":"700-749","credits":["ENGL001"]},{"categories":"750-800","credits":["ENGL001","ENGL002"]}]},{"transferid":"SAT Essay","type":"SAT","name":"Essay","transfer":[{"categories":"<6 On Any Part","credits":null},{"categories":">= 6 On All Three Parts","credits":["ENGL001"]},{"categories":">= 7 On All Three Parts","credits":["ENGL001","ENGL002"]}]},{"transferid":"ACT English","type":"ACT","name":"English","transfer":[{"categories":"<32","credits":null},{"categories":"32-34","credits":["ENGL001"]},{"categories":"35-36","credits":["ENGL001","ENGL002"]}]},{"transferid":"ACT Writing","type":"ACT","name":"Writing","transfer":[{"categories":"<10","credits":null},{"categories":"10","credits":["ENGL001"]},{"categories":"11-12","credits":["ENGL001","ENGL002"]}]},{"transferid":"IB English","type":"IB","name":"English","transfer":[{"categories":"<5","credits":null},{"categories":"5-7","credits":["ENGL001"]}]},{"transferid":"IB High-level Mathematics","type":"IB","name":"High-level Mathematics","transfer":[{"categories":"<5","credits":null},{"categories":"5-7","credits":["MATH021"]}]}]
+[{
+  "transferid": "AP Biology",
+  "type": "AP",
+  "name": "Biology",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["BIOS001"]
+  }]
+}, {
+  "transferid": "AP Chemistry",
+  "type": "AP",
+  "name": "Chemistry",
+  "transfer": [{
+    "categories": "1-4",
+    "credits": null
+  }, {
+    "categories": "5",
+    "credits": ["CHM030"]
+  }]
+}, {
+  "transferid": "AP Computer Science A",
+  "type": "AP",
+  "name": "Computer Science A",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["CSE001", "CSE002"]
+  }]
+}, {
+  "transferid": "AP Computer Science Principles",
+  "type": "AP",
+  "name": "Computer Science Principles",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["CSE012"]
+  }]
+}, {
+  "transferid": "AP Environmental Science",
+  "type": "AP",
+  "name": "Environmental Science",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["EES002", "EES022"]
+  }]
+}, {
+  "transferid": "AP Microeconomics",
+  "type": "AP",
+  "name": "Microeconomics",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["2FC", "*ECO001"]
+  }]
+}, {
+  "transferid": "AP Macroeconomics",
+  "type": "AP",
+  "name": "Macroeconomics",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["2FC", "*ECO001"]
+  }]
+}, {
+  "transferid": "AP English Language and Composition",
+  "type": "AP",
+  "name": "English Language and Composition",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": "5",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "AP English Literature and Composition",
+  "type": "AP",
+  "name": "English Literature and Composition",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": "5",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "AP Calculus AB",
+  "type": "AP",
+  "name": "Calculus AB",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["MATH021"]
+  }]
+}, {
+  "transferid": "AP Calculus BC",
+  "type": "AP",
+  "name": "Calculus BC",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["MATH021", "MATH022"]
+  }]
+}, {
+  "transferid": "AP Physics 1: Algebra-Based",
+  "type": "AP",
+  "name": "Physics 1: Algebra-Based",
+  "transfer": [{
+    "categories": "1-4",
+    "credits": null
+  }, {
+    "categories": "5",
+    "credits": ["PHY011", "PHY012"]
+  }]
+}, {
+  "transferid": "AP Physics C: Mechanics",
+  "type": "AP",
+  "name": "Physics C: Mechanics",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["PHY011", "PHY012"]
+  }]
+}, {
+  "transferid": "AP Physics C: Electricity and Magnetism",
+  "type": "AP",
+  "name": "Physics C: Electricity and Magnetism",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["@PHY021", "PHY022"]
+  }]
+}, {
+  "transferid": "AP Statistics",
+  "type": "AP",
+  "name": "Statistics",
+  "transfer": [{
+    "categories": "1-3",
+    "credits": null
+  }, {
+    "categories": "4-5",
+    "credits": ["ECO045"]
+  }]
+}, {
+  "transferid": "SAT Evidence-Based Reading & Writing",
+  "type": "SAT",
+  "name": "Evidence-Based Reading & Writing",
+  "transfer": [{
+    "categories": "<700",
+    "credits": null
+  }, {
+    "categories": "700-749",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": "750-800",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "SAT Essay",
+  "type": "SAT",
+  "name": "Essay",
+  "transfer": [{
+    "categories": "<6 On Any Part",
+    "credits": null
+  }, {
+    "categories": ">= 6 On All Three Parts",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": ">= 7 On All Three Parts",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "ACT English",
+  "type": "ACT",
+  "name": "English",
+  "transfer": [{
+    "categories": "<32",
+    "credits": null
+  }, {
+    "categories": "32-34",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": "35-36",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "ACT Writing",
+  "type": "ACT",
+  "name": "Writing",
+  "transfer": [{
+    "categories": "<10",
+    "credits": null
+  }, {
+    "categories": "10",
+    "credits": ["ENGL001"]
+  }, {
+    "categories": "11-12",
+    "credits": ["ENGL001", "ENGL002"]
+  }]
+}, {
+  "transferid": "IB English",
+  "type": "IB",
+  "name": "English",
+  "transfer": [{
+    "categories": "<5",
+    "credits": null
+  }, {
+    "categories": "5-7",
+    "credits": ["ENGL001"]
+  }]
+}, {
+  "transferid": "IB High-level Mathematics",
+  "type": "IB",
+  "name": "High-level Mathematics",
+  "transfer": [{
+    "categories": "<5",
+    "credits": null
+  }, {
+    "categories": "5-7",
+    "credits": ["MATH021"]
+  }]
+}]

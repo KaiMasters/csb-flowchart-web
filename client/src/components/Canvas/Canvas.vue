@@ -1,9 +1,9 @@
 <template>
   <div id="canvas" class="column is-three-quarters">
-    <span v-for="course in $props.CourseList" v-bind:key="course.id">
+    <span v-for="course in CourseList" v-bind:key="course.id">
       <CourseButton 
         :Course="course" 
-        :CompletedCourseList="$props.CompletedCourseList"
+        :CompletedCourseList="CompletedCourseList"
         v-bind:isCompleted="checkCompleted(course.id)"
         v-on:boldPrereqs="boldPrereqs(course.id)"
         v-on:unboldPrereqs="unboldPrereqs(course.id)"

@@ -6,6 +6,7 @@
     <Viewport
       :CompletedCourseList="Completed"
       :CourseList="Curriculum"
+      :TransferList="TRANSFER"
       v-on:updateCompleted="updateCompleted"
     />
   </div>
@@ -15,8 +16,12 @@
 import Banner from './components/Banner.vue'
 import Viewport from './components/Viewport.vue'
 import Vue from 'vue'
+
 import CURRICULUM from '../../server/data/db/CURRICULUM.json'
+import TRANSFER from '../../server/data/db/TRANSFER_CREDIT.json'
+
 import Completed from '../../server/data/COMPLETED.json'
+
 import CSB2023 from '../../server/data/map/CSB2023.json'
 
 const mapContains = (id, map) => {
@@ -62,6 +67,7 @@ export default {
   data () {
     return {
       Curriculum,
+      TRANSFER,
       Completed,
       CSB2023
     }

@@ -1,34 +1,38 @@
 <template>
   <div id="aside" class="column is-one-quarter">
     <select v-model="dropdownState">
-      <option>Courses</option>
-      <option>AP/Transfer Credit</option>
+      <option value="1">Courses</option>
+      <option value="2">AP/Transfer Credit</option>
     </select>
     <div id="aside-container">
-      <div v-if="dropdownState === 'Courses'">
-        <div v-for="course in $props.CourseList" v-bind:key="'AsideButton_' + course.id">
-          <AsideButton :Course="course"/>
-        </div>
+      <div v-if="dropdownState === '1'">
+        <AsideCourses :CourseList="CourseList"/>
+      </div>
+      <div v-if="dropdownState === '2'">
+        <AsideTransfer :TransferList="TransferList"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AsideButton from './AsideButton.vue'
+import AsideCourses from './CoursesTab/AsideCourses.vue'
+import AsideTransfer from './TransferTab/AsideTransfer.vue'
 
 export default {
   name: 'Aside',
   components: {
-    AsideButton
+    AsideCourses,
+    AsideTransfer
   },
   props: {
     msg: String,
-    CourseList: Array
+    CourseList: Array,
+    TransferList: Array
   },
   data () {
     return {
-      dropdownState: 1
+      dropdownState: '2'
     }
   },
   methods: {
@@ -42,6 +46,9 @@ export default {
 #aside {
   display: inline-block;
   padding: 0%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 select {
